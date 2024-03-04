@@ -13,7 +13,7 @@ yaxis = []
 fitness, lowerbound, upperbound, dimension = f.fun_info(Fun_name)
 
 # Calculating the solution of the given problem using POA
-for Max_iterations in range(10, 1001, 10):
+for Max_iterations in range(1, 4, 1):
 	
 	Best_score, Best_pos, POA_curve = t.POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness)
 
@@ -22,9 +22,11 @@ for Max_iterations in range(10, 1001, 10):
 	print(f"The best optimal value of the objective function found by POA for {Fun_name} is: {Best_score}")
 	
 	xaxis.append(Max_iterations)
-	yaxis.append(Best_score)
-	
+	yaxis.append(Best_score*0.0001)
+
 	print()
 
 
 p.plot_func(xaxis, yaxis)
+print(xaxis)
+print(yaxis)
