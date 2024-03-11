@@ -1,9 +1,9 @@
 import numpy as np
 
-fbest, Xbest, best_so_far = 0, 0, []
+fbest, Xbest, best_so_far, iterations, best_per_iteration = [], [], [], [], []
 
 def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness):
-    global fbest, Xbest, best_so_far
+    # global fbest, Xbest, best_so_far
     
     lowerbound = np.ones(dimension) * lowerbound  # Lower limit for variables
     upperbound = np.ones(dimension) * upperbound  # Upper limit for variables
@@ -18,14 +18,16 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
         L = X[i, :]
         fit[i] = fitness(L)
     
-    print("fit = ", fit);
+    # print("fit = ", fit);     DEBUG
     
     best_so_far = []  # Initialize list to store best fitness values over iterations
     average = []      # Initialize list to store average fitness values over iterations
         
     for t in range(1, Max_iterations):
-        location, best = min(enumerate(fit), key=lambda x: X[1])
-        print("best = ", best);
+        iterations.append(t)
+        
+        location, best = min(enumerate(fit), key=lambda x: x[1])
+        # print("best = ", best);     DEBUG
         if t == 1:
             fbest = best
             Xbest = X[location, :]  # Accessing row 'location' from matrix X
@@ -63,13 +65,9 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
                 X[i,:] = X_new
                 fit[i] = f_new
                 
+        best_per_iteration.append(best)
+                
     best_so_far.append(fbest)
     average.append(np.mean(fit))
     
-    return fbest, Xbest, best_so_far
-    # best score, best pos, poa curve
-
-
-
-
-
+    return fbest, Xbest, best_so_far, iterations, best_per_iteration
