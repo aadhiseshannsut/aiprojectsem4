@@ -2,8 +2,10 @@ import tempPOA as t
 import fun_info as f
 import plotter as p
 
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------
 # Fun_names = ['F1', 'F2', 'F3', 'F4']  # number of test functions: 'F1' to 'F4' 
-Fun_names = ['F1']  # number of test functions: 'F1' to 'F4' 
+Fun_names = ["F4"]  # number of test functions: 'F1' to 'F4' 
 SearchAgents = 30  # number of Pelicans (population members)
 Max_iterations = 1000  # maximum number of iterations
 
@@ -22,10 +24,15 @@ for Fun_name in Fun_names:
 	print(f"The best optimal value of the objective function found by POA for {Fun_name} is: {Best_score}")
 	
 	# solutions.append(best_per_iteration)
-	
+
+for F in Fun_names:
+	p.plot_func(iterations, best_per_iteration, F)
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 # print(iterations)				#DEBUG
 # print(best_per_iteration)		DEBUG
 # p.plot_func(iterations, best_per_iteration)
-
 # for solution in solutions:
-p.plot_func(iterations, best_per_iteration)
