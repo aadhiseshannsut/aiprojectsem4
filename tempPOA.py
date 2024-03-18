@@ -24,10 +24,10 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
     average = []      # Initialize list to store average fitness values over iterations
         
     for t in range(1, Max_iterations):
-        iterations.append(t)
+        iterations.append(t) # for graph
         
         location, best = min(enumerate(fit), key=lambda x: x[1])
-        # print("best = ", best);     DEBUG
+        # print("best = ", best);
         if t == 1:
             fbest = best
             Xbest = X[location, :]  # Accessing row 'location' from matrix X

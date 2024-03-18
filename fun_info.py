@@ -12,6 +12,9 @@ def fun_info(F):
 
     elif F == 'F4':
         return F4, -100, 100, 30
+    
+    elif F == 'F8':
+        return F8, -500, 500, 30
 
 # F1
 def F1(x):
@@ -32,3 +35,7 @@ def F3(x):
 # F4
 def F4(x):
     return max(abs(x))
+
+# F8
+def F8(x):
+    return np.sum(-x * np.sin(np.sqrt(np.abs(x))))
