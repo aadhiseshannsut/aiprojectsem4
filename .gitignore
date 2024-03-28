@@ -1,4 +1,4 @@
-/virt/*
-__pycache__/*
-/pressurevesseldesign/__pycache__/*
-/algocode/__pycache__/*
+/virt/
+__pycache__/
+/pressurevesseldesign/__pycache__/
+/algocode/__pycache__/
