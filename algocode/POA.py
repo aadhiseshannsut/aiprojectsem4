@@ -3,35 +3,38 @@ import numpy as np
 fbest, Xbest, best_so_far, iterations, best_per_iteration = [], [], [], [], []
 
 def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness):
-    # global fbest, Xbest, best_so_far
     
     lowerbound = np.ones(dimension) * lowerbound  # Lower limit for variables
     upperbound = np.ones(dimension) * upperbound  # Upper limit for variables
     
     # Initialization
-    X = np.zeros((SearchAgents, dimension))  # Initialize X as a matrix of zeros
+    X = np.zeros((SearchAgents, dimension))  # Initialize X as a matrix of zeros # Eq(2)
     for i in range(dimension):
-        X[:, i] = lowerbound[i] + np.random.rand(SearchAgents) * (upperbound[i] - lowerbound[i])  # Initial population
+        X[:, i] = lowerbound[i] + np.random.rand(SearchAgents) * (upperbound[i] - lowerbound[i])  # Initial population # Eq(1)
     
-    fit = np.zeros(SearchAgents)  # Initialize fitness array
+    fit = np.zeros(SearchAgents)  # Initialize fitness array # Eq(3)
     for i in range(SearchAgents):
         L = X[i, :]
         fit[i] = fitness(L)
     
-    # print("fit = ", fit);     DEBUG
     
     best_so_far = []  # Initialize list to store best fitness values over iterations
-    average = []      # Initialize list to store average fitness values over iterations
+    # average = []      # Initialize list to store average fitness values over iterations
         
     for t in range(1, Max_iterations):
         iterations.append(t) # for graph
         
         location, best = min(enumerate(fit), key=lambda x: x[1])
-        # print("best = ", best);
+
         if t == 1:
             fbest = best
             Xbest = X[location, :]  # Accessing row 'location' from matrix X
-    
+        
+        elif (best<fbest):
+            fbest = best
+            Xbest = X[location, :]  # Accessing row 'location' from matrix X
+            
+            
         # UPDATE location of food
         k = np.random.randint(0, SearchAgents)  # Randomly select an index k
         X_FOOD = X[k, :]  # Update X_FOOD with the selected row from X
@@ -64,10 +67,8 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             if f_new <= fit[i]:
                 X[i,:] = X_new
                 fit[i] = f_new
-                
-        best_per_iteration.append(best)
-                
-    best_so_far.append(fbest)
-    average.append(np.mean(fit))
+                                
+        best_so_far.append(fbest)
+        # average.append(np.mean(fit))
     
-    return fbest, Xbest, best_so_far, iterations, best_per_iteration
+    return fbest, Xbest, best_so_far

@@ -15,6 +15,10 @@ def fun_info(F):
     
     elif F == 'F8':
         return F8, -500, 500, 30
+        
+    else: 
+        return F1, -100, 100, 30
+    
 
 # F1
 def F1(x):
