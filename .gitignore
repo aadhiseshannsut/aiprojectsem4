@@ -1,3 +1,4 @@
 /virt/*
-/algocode/__pycache__/*
+__pycache__/*
 /pressurevesseldesign/__pycache__/*
+/algocode/__pycache__/*
