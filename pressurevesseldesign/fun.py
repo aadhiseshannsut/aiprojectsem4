@@ -1,4 +1,4 @@
-# Pressure Vessel design
+# fitness function
 import getconstraints as g
  
 def Fun(fhandle,fnonlin,u):

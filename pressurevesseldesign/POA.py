@@ -19,7 +19,6 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
     
     
     best_so_far = []  # Initialize list to store best fitness values over iterations
-    # average = []      # Initialize list to store average fitness values over iterations
         
     for t in range(1, Max_iterations):
         iterations.append(t) # for graph
