@@ -3,9 +3,8 @@ import fun_info as f
 import plotter as p
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------
-# Fun_names = ['F1', 'F2', 'F3', 'F4']  # number of test functions: 'F1' to 'F4' 
-Fun_name = "F2"  # test function 
-SearchAgents = 20  # number of Pelicans (population members)
+Fun_name = "F1"  # test function 
+SearchAgents = 30  # number of Pelicans (population members)
 Max_iterations = 1000  # maximum number of iterations
 
 # Object function information
