@@ -1,6 +1,6 @@
-#3 /algocode/ 
-contains the main code for the Pelican Optimization Algorithm.
-#3 functionscores
-contains code similar to /algocode/ along with a writer.py file which generates text files containing the best scores obtained for each test function, and stores the file inside ./scores/
-#3 /pressurevesseldesign/
-contains the modified algorithm used to find the solution of the Pressure Vessel Design Engineering problem. (Also uses a writer.py file to store best scores along with the best solution)
+# README
+1. **algocode**: contains the main code for the Pelican Optimization Algorithm.
+
+2. **functionscores**: code similar to that of /algocode/, along with a *writer.py* file. The *writer.py* script generates text files containing the best scores obtained for each test function. These files are stored within the *./scores/* directory.
+
+3. **pressurevesseldesign**: contains a modified algorithm for solving the Pressure Vessel Design Engineering problem. Also includes a *writer.py* file for storing best scores and solutions.
