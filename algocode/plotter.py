@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 # -------------------------------------------------------------------------
 def plot_func(t, best_pos, F):
 	x = [i for i in range(1, t+1)] # number of iterations

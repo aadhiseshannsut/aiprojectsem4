@@ -3,9 +3,9 @@ import fun_info as f
 import writer as w
 
 ROWS = 20
-# --------------------------------------------------------------------------------------------------------------------------------------------------
-Fun_names = ['F1', 'F2', 'F3']  # 'F1', 'F2' , , 'F4' number of test functions: 'F1' to 'F4' 
-SearchAgents = 30  # number of Pelicans (population members)
+# -------------------------------------------------------------------------------------------------------------------------------------------------
+Fun_names = ['F1', 'F2', 'F3', 'F4', 'F8', 'F10'] 
+SearchAgents = 50  # number of Pelicans (population members)
 Max_iterations = 1000  # maximum number of iterations
 
 for Fun_name in Fun_names:

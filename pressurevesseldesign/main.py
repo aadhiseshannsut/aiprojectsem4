@@ -3,10 +3,11 @@ import cost
 import constraints
 import fun
 import plotter
+import writer
 
-
+ROWS = 20
 # --------------------------------------------------------------------------------------------------------------------------------------------------
-SearchAgents = 30  # number of Pelicans (population members)
+SearchAgents = 50  # number of Pelicans (population members)
 Max_iterations = 1000  # maximum number of iterations (1_000)
 
 # Object function information
@@ -17,15 +18,17 @@ fitness = fun.Fun
 fhandle = cost.cost
 fnonlin = constraints.constraint
 
-# Calculating the solution of the given problem using POA	
-Best_score, Best_pos, POA_curve = POA.POA(SearchAgents,
- Max_iterations, lowerbound, upperbound, dimension, 
- fitness, fhandle, fnonlin)
+for i in range(1, ROWS+1):
+	# Calculating the solution of the given problem using POA	
+	Best_score, Best_pos, POA_curve = POA.POA(SearchAgents,
+	 Max_iterations, lowerbound, upperbound, dimension, 
+	 fitness, fhandle, fnonlin)
 
-# Displaying results
-print(f"Best solution: \n{Best_pos}")
-print(f"Best optimal value of the objective function : {Best_score}")
-
-iterations = [i+1 for i in range(1, Max_iterations)]
-plotter.plot_func(iterations, POA_curve, 'Objective Space')
+	# Displaying results
+	print(f"{i})Best solution : {Best_pos}")
+	print(f"Best Score : {Best_score}\n")
+	# plotter.plot_func(Max_iterations, POA_curve, 'Objective Space')
+	
+	# save scores in a text file
+	writer.add_score(Best_pos, Best_score, "scores")
 # --------------------------------------------------------------------------------------------------------------------------------------------------
