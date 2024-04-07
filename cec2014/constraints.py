@@ -80,91 +80,91 @@ def constraint(F):
 
 # constraints
 def constraint_F1(x):
-    pass
+    return [0]
 
 def constraint_F2(x):
-    pass
+    return [0]
 
 def constraint_F3(x):
-    pass
+    return [0]
 
 def constraint_F4(x):
-    pass
+    return [0]
 
 def constraint_F5(x):
-    pass
+    return [0]
 
 def constraint_F6(x):
-    pass
+    return [0]
 
 def constraint_F7(x):
-    pass
+    return [0]
 
 def constraint_F8(x):
-    pass
+    return [0]
 
 def constraint_F9(x):
-    pass
+    return [0]
 
 def constraint_F10(x):
-    pass
+    return [0]
 
 def constraint_F11(x):
-    pass
+    return [0]
 
 def constraint_F12(x):
-    pass
+    return [0]
 
 def constraint_F13(x):
-    pass
+    return [0]
 
 def constraint_F14(x):
-    pass
+    return [0]
 
 def constraint_F15(x):
-    pass
+    return [0]
 
 def constraint_F16(x):
-    pass
+    return [0]
 
 def constraint_F17(x):
-    pass
+    return [0]
 
 def constraint_F18(x):
-    pass
+    return [0]
 
 def constraint_F19(x):
-    pass
+    return [0]
 
 def constraint_F20(x):
-    pass
+    return [0]
 
 def constraint_F21(x):
-    pass
+    return [0]
 
 def constraint_F22(x):
-    pass
+    return [0]
 
 def constraint_F23(x):
-    pass
+    return [0]
 
 def constraint_F24(x):
-    pass
+    return [0]
 
 def constraint_F25(x):
-    pass
+    return [0]
 
 def constraint_F26(x):
-    pass
+    return [0]
 
 def constraint_F27(x):
-    pass
+    return [0]
 
 def constraint_F28(x):
-    pass
+    return [0]
 
 def constraint_F29(x):
-    pass
+    return [0]
 
 def constraint_F30(x):
-    pass
+    return [0]

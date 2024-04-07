@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness, fhandle, fnonlin):
+def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness):
     
     best_so_far = []  # Initialize list to store best fitness values over iterations
     fbest = 0
@@ -17,7 +17,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
     fit = np.zeros(SearchAgents)  # Initialize fitness array # Eq(3)
     for i in range(SearchAgents):
         L = X[i, :]
-        fit[i] = fitness(fhandle, fnonlin, L)
+        fit[i] = fitness(L)
             
     for t in range(1, Max_iterations+1):
                         
@@ -48,7 +48,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             X_new = np.minimum(X_new, upperbound)                    
 
             # Updating X_i using equation (5)
-            f_new = fitness(fhandle, fnonlin, X_new)
+            f_new = fitness(X_new)
             if f_new <= fit[i]:
                 X[i, :] = X_new
                 fit[i] = f_new
@@ -62,7 +62,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             X_new = np.minimum(X_new, upperbound)
             
             # Updating X_i using equation (7)
-            f_new = fitness(fhandle, fnonlin, X_new)
+            f_new = fitness(X_new)
             if f_new <= fit[i]:
                 X[i,:] = X_new
                 fit[i] = f_new

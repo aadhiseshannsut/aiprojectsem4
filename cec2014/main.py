@@ -11,12 +11,12 @@ Max_iterations = 1000  # maximum number of iterations
 
 # Object function information
 lowerbound, upperbound, dimension = -100, 100, 30
-fitness = fun.fun
-fhandle = fun_info.fun_info(Fun_name)
-fnonlin = constraints.constraint(Fun_name)
+fitness = fun_info.fun_info(Fun_name)
+# fhandle = fun_info.fun_info(Fun_name)
+# fnonlin = constraints.constraint(Fun_name)
 
 # Calculating the solution of the given problem using POA
-Best_score, Best_pos, POA_curve = POA.POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness, fhandle, fnonlin)
+Best_score, Best_pos, POA_curve = POA.POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness)
 
 # Displaying results
 print(f"The best solution obtained by POA for {Fun_name} is: \n{Best_pos}")
