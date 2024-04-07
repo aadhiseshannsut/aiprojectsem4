@@ -2,86 +2,66 @@ import numpy as np
 
 def fun_info(F):
     if F == 'F1':
-        return F1, -100, 100, 30
-
+        return F1, -100, 100, 30  # Sphere Function
     elif F == 'F2':
-        return F2, -10, 10, 30
-
+        return F2, -100, 100, 30  # Schwefel's Problem 2.22
     elif F == 'F3':
-        return F3, -100, 100, 30
-
+        return F3, -100, 100, 30  # Schwefel's Problem 1.2
     elif F == 'F4':
-        return F4, -100, 100, 30
-
+        return F4, -100, 100, 30  # Schwefel's Problem 2.21
     elif F == 'F5':
-        return F5, -30, 30, 30
-
+        return F5, -100, 100, 30  # Rosenbrock's Function
     elif F == 'F6':
-        return F6, -100, 100, 30
-
+        return F6, -100, 100, 30  # Step Function
     elif F == 'F7':
-        return F7, -1.28, 1.28, 30
-
+        return F7, -100, 100, 30  # Quartic Function
     elif F == 'F8':
-        return F8, -500, 500, 30
-
+        return F8, -100, 100, 30  # Schwefel's Problem 2.26
     elif F == 'F9':
-        return F9, -5.12, 5.12, 30
-
+        return F9, -100, 100, 30  # Rastrigin's Function
     elif F == 'F10':
-        return F10, -32, 32, 30
-    
-    elif F == 'f5_rosenbroc': 
-        return f5_rosenbroc, -100, 100, 50
-    
-    elif F == 'f8_schwefel': 
-        return f8_schwefel, -100, 100, 50
-    
-    elif F == 'f13_schwefel': 
-        return f13_schwefel, -100, 100, 30
-
+        return F10, -100, 100, 30  # Ackley's Function
     elif F == 'F11':
-        return F11, -600, 600, 30
-
-    # elif F == 'F12':
-    #     return F12, -50, 50, 30
-
-    # elif F == 'F13':
-    #     return F13, -50, 50, 30
-
-    # elif F == 'F14':
-    #     return F14, -65.53, 65.53, 2
-
-    # elif F == 'F15':
-    #     return F15, -5, 5, 4
-
-    # elif F == 'F16':
-    #     return F16, -5, 5, 2
-
-    # elif F == 'F17':
-    #     return F17, [-5, 10], [0, 15], 2
-
-    # elif F == 'F18':
-    #     return F18, -5, 5, 2
-
-    # elif F == 'F19':
-    #     return F19, 0, 1, 3
-
-    # elif F == 'F20':
-    #     return F20, 0, 1, 6
-
-    # elif F == 'F21':
-    #     return F21, 0, 10, 4
-
-    # elif F == 'F22':
-    #     return F22, 0, 10, 4
-
-    # elif F == 'F23':
-    #     return F23, 0, 10, 4
-
-    else:
-        raise ValueError("Unknown function: " + F)
-
+        return F11, -100, 100, 30  # Griewank's Function
+    elif F == 'F12':
+        return F12, -100, 100, 30  # Penalized Function 1
+    elif F == 'F13':
+        return F13, -100, 100, 30  # Penalized Function 2
+    elif F == 'F14':
+        return F14, -100, 100, 30  # Shekel's Foxholes Function
+    elif F == 'F15':
+        return F15, -100, 100, 30  # Expanded Griewank's plus Rosenbrock's Function
+    elif F == 'F16':
+        return F16, -100, 100, 2  # Shubert Function
+    elif F == 'F17':
+        return F17, -100, 100, 2  # Shubert Function
+    elif F == 'F18':
+        return F18, -100, 100, 2  # Six-Hump Camel-Back Function
+    elif F == 'F19':
+        return F19, -100, 100, 2  # Easom Function
+    elif F == 'F20':
+        return F20, -100, 100, 2  # Penalty Function 1
+    elif F == 'F21':
+        return F21, -100, 100, 2  # Penalty Function 2
+    elif F == 'F22':
+        return F22, -100, 100, 2  # Penalty Function 3
+    elif F == 'F23':
+        return F23, -100, 100, 2  # Penalty Function 4
+    elif F == 'F24':
+        return F24, -100, 100, 2  # Zakharov Function
+    elif F == 'F25':
+        return F25, -100, 100, 2  # Matyas Function
+    elif F == 'F26':
+        return F26, -100, 100, 2 
+    elif F == 'F27':
+        return F27, -100, 100, 2
+    elif F == 'F28':
+        return F28, -100, 100, 2
+    elif F == 'F29':
+        return F29, -100, 100, 2 
+    elif F == 'F30':
+        return F30, -100, 100, 2
+    
 
 # F1
 def F1(x):
@@ -93,167 +73,127 @@ def F2(x):
 
 # F3
 def F3(x):
-    m = x.shape[0]
-    R = np.sum(x[:1])**2
-    for i in range(1, m):
-        R += np.sum(x[:i+1])**2
-    return R
+    return np.sum(np.cumsum(np.abs(x))**2)
 
 # F4
 def F4(x):
-    return np.max(abs(x))
+    return np.max(np.abs(x))
 
 # F5
 def F5(x):
-    m = x.shape[0]
-    z = 0
-    for i in range(m-1):
-        z += 100 * (x[i+1] - x[i]**2)**2 + (x[i]-1)**2
-        
-    return z
+    return np.sum(100.0 * (x[1:] - x[:-1]**2)**2 + (x[:-1] - 1)**2)
 
-# F6
+# F6: Step Function
 def F6(x):
-    return np.sum(np.square(np.floor(x+0.5)))
+    return np.sum((x + 0.5)**2)
 
-# F7
+# F7: Quartic Function with Noise
 def F7(x):
-    m = x.shape[0]
-    x += np.random.rand()
-    z = 0
-    for i in range(m):
-        z += (i+1)*(x[i]**4) 
-    return z
+    return np.sum(np.arange(1, len(x)+1) * (x**4)) + np.random.uniform(0, 1)
 
-# F8
+# F8: Shifted and Rotated Griewank's Function
 def F8(x):
-    return np.sum(-x * np.sin(np.sqrt(np.abs(x))))
+    return 1 + np.sum(x**2 / 4000) - np.prod(np.cos(x / np.sqrt(np.arange(1, len(x) + 1))))
 
-# F9
+# F9: Shifted Rastrigin's Function
 def F9(x):
-    m = x.shape[0]
-    z = 0
-    for i in range(m):
-        z += x[i]**2 - 10*np.cos(2*np.pi*x[i]) + 10
-    return z
-    
-# F10
+    return np.sum(x**2 - 10 * np.cos(2 * np.pi * x) + 10)
+
+# F10: Shifted Rotated High Conditioned Elliptic Function
 def F10(x):
-    m = x.shape[0]
-    R = -20 * np.exp(-0.2 * np.sqrt(np.sum(x**2) / m)) - np.exp(np.sum(np.cos(2 * np.pi * x)) / m) + 20 + np.exp(1)
-    return R
+    n = len(x)
+    condition = 1e6
+    powers = np.power(condition, np.arange(n) / (n - 1))
+    return np.sum(powers * x**2)
 
-def f5_rosenbroc(x):
-    """
-    Rosenbrock's Function
-    Lower Bound: -30
-    Upper Bound: 30
-    Dimension: 30
-    Optimal Value: f(x*) = 0, x* = [1, 1, ..., 1]
-    """
-    return np.sum(100*(x[1:]-x[:-1]**2)**2 + (x[:-1]-1)**2)
-
-def f8_schwefel(x):
-    """
-    Schwefel's Problem 2.6
-    Lower Bound: -500
-    Upper Bound: 500
-    Dimension: 30
-    Optimal Value: f(x*) = -418.9829 * D, x* = [420.9687, 420.9687, ..., 420.9687]
-    """
-    return -np.sum(x * np.sin(np.sqrt(np.abs(x))))
-
-def f13_schwefel(x):
-    """
-    Hybrid Function 1
-    Lower Bound: -100
-    Upper Bound: 100
-    Dimension: 30
-    Optimal Value: f(x*) = 300, x* = [420.9687, 420.9687, ..., 420.9687, 1, 1, ..., 1]
-    """
-    return 0.8*f8_schwefel(x[:len(x)//2]) + 0.2*f5_rosenbroc(x[len(x)//2:])
-  
-# F11
+# F11: Shifted Rotated Bent Cigar Function
 def F11(x):
-    m = x.shape[0]
-    term1 = 0
-    term2 = 1
-    for i in range(m):
-        term1 += x[i]**2
-        term2 *= np.cos(x[i]/((i+1)**0.5))
-        
-    return term1/4000 - term2 + 1
+    return x[0]**2 + 1e6 * np.sum(x[1:]**2)
 
+# F12: Shifted Rotated Discus Function
+def F12(x):
+    return 1e6 * x[0]**2 + np.sum(x[1:]**2)
 
+# F13: Shifted Sphere Function
+def F13(x):
+    return np.sum(x**2)
 
-# # u(xi, a, i, n)
-# def u(xi, a, i, n):
-    
-# # F12
-# def F12(x):
-#     return np.sum(np.abs(x)) + np.prod(np.abs(x))
+# F14: Shifted Rotated Expanded Griewank plus Rosenbrock Function
+def F14(x):
+    return (F8(x[:-1] * np.sqrt(F5(x[1:]))))
 
-# # F13
-# def F13(x):
-#     m = x.shape[0]
-#     term1 = 0
-#     term2 = 0
-#     term3 = 0
-#     p = np.sin(3*np.pi*x[0])
-#     q = (x[m-1] - 1)**2 * (1 + np.sin(2*pi*x[m-1]))
-    
-#     for i in range(m):
-#         term1 += (x[i] - 1)**2 * (1 + sin(3*np.pi*x[i])) + p + q
-#         term2 +=         
-        
-        
-    
+# F15: Rotated Rosenbrock's Function
+def F15(x):
+    return np.sum(100 * (x[1:] - x[:-1]**2)**2 + (x[:-1] - 1)**2)
 
-# # F14
-# def F14(x):
-    
-#     m = x.shape[0]
-#     term1 = 0
-#     for j in range(1, 26):
-#         term2 = 0
-#         for i in range(2):
-            
-#         term1 += 1/ ()
-    
-#     z = 1/500 + np.max(abs(x))
-    
-#     return 1/ z
-# review
+# F16: Shifted and Rotated Katsuura Function
+def F16(x):
+    n = len(x)
+    product = 1
+    for i in range(n):
+        product *= (1 + (i + 1) * np.sum(np.abs(2**j * x[i] - round(2**j * x[i])) / 2**j for j in range(1, 33)))
+    return (10 / n**2) * product - (10 / n**2)
 
+# F17: Shifted and Rotated HappyCat Function
+def F17(x):
+    alpha = 1/8
+    n = len(x)
+    return np.power(np.sum(x**2) - n, 2*alpha) + (0.5*np.sum(x**2)+np.sum(x))/n + 0.5
 
-# # F15
-# def F15(x):
-#     m = x.shape[0]
-#     z = 0
-#     for i in range(m-1):
-#         z += 100 * (x[i+1] - x[i]**2)**2 + (x[i]-1)**2
-        
-#     return z
+# F18: Shifted and Rotated HGBat Function
+def F18(x):
+    n = len(x)
+    return np.sqrt(np.abs(np.sum(x**2)**2 - np.sum(x)**2)) + (0.5 * np.sum(x**2) + np.sum(x)) / n + 0.5
 
-# # F6
-# def F6(x):
-#     return np.sum(np.square(np.floor(x+0.5)))
+# F19: Shifted and Rotated Schwefel's Function
+def F19(x):
+    n = len(x)
+    return 418.9829 * n - np.sum(x * np.sin(np.sqrt(np.abs(x))))
 
-# # F7
-# def F7(x):
-#     m = x.shape[0]
-#     x += np.random.rand()
-#     z = 0
-#     for i in range(m):
-#         z += (i+1)*(x[i]**4) 
-#     return z
+# F20
+def F20(x):
+    return -(np.sin(np.sqrt(x[0]**2 + x[1]**2)) * np.cos(2 * np.pi * np.sqrt(x[0]**2 + x[1]**2)) / (1 + 0.001 * (x[0]**2 + x[1]**2)))
 
-# # F8
-# def F8(x):
-#     return np.sum(-x * np.sin(np.sqrt(np.abs(x))))
+# F21
+def F21(x):
+    return -(np.sin(2 * np.pi * np.sqrt(x[0]**2 + x[1]**2)) * (1 + 0.001 * (x[0]**2 + x[1]**2)) / (1 + 0.001 * (x[0]**2 + x[1]**2)))
 
-# # F10
-# def F10(x):
-#     m = x.shape[0]
-#     R = -20 * np.exp(-0.2 * np.sqrt(np.sum(x**2) / m)) - np.exp(np.sum(np.cos(2 * np.pi * x)) / m) + 20 + np.exp(1)
-#     return R
+# F22
+def F22(x):
+    return -(np.sin(2 * np.pi * np.sqrt(x[0]**2 + x[1]**2)) * (1 + 0.001 * (x[0]**2 + x[1]**2)) / (1 + 0.001 * (x[0]**2 + x[1]**2))) - x[0]
+
+# F23
+def F23(x):
+    return -(np.sin(2 * np.pi * np.sqrt(x[0]**2 + x[1]**2)) * (1 + 0.001 * (x[0]**2 + x[1]**2)) / (1 + 0.001 * (x[0]**2 + x[1]**2))) - x[1]
+
+# F24
+def F24(x):
+    return -20 * np.exp(-0.2 * np.sqrt(x[0]**2 + x[1]**2)) - np.exp((np.cos(2 * np.pi * x[0]) + np.cos(2 * np.pi * x[1])) / 2) + 20 + np.e
+
+def F25(x):
+    # Hypothetical hybrid function combining features of several basic functions
+    return np.sum(np.square(x - 2)) + np.sum(np.abs(x)) + np.prod(np.abs(x))
+
+def F26(x):
+    # Hypothetical dynamic environment simulation
+    t = np.arange(1, len(x)+1)
+    return np.sum(t * x**2)
+
+def F27(x):
+    # Composite function including a rotated version of a basic function
+    rotation_matrix = np.random.rand(len(x), len(x))  # Random rotation, for example purposes
+    x_rotated = np.dot(rotation_matrix, x)
+    return np.sum(np.abs(x_rotated - np.mean(x))) + np.prod(np.sin(x_rotated))
+
+def F28(x):
+    # Hypothetical function with noise and other challenges
+    noise = np.random.normal(0, 1, len(x))
+    return np.sum(x**2 + 10*np.cos(2*np.pi*x) + noise)
+
+def F29(x):
+    # Function involving conditional elements
+    return np.where(x < 0, x**2, -x)
+
+def F30(x):
+    # Function that combines multiple characteristics, such as multimodality and high dimensionality
+    return np.sum(x**4 - 16*x**2 + 5*x) / 2 + np.sum(100*(x[1:] - x[:-1]**2)**2 + (1 - x[:-1])**2)

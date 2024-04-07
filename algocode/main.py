@@ -2,7 +2,7 @@ import POAM
 import fun_info as f
 import plotter as p
 
-Fun_name = "F1"  # test function 
+Fun_name = "f13_schwefel"  # test function 
 SearchAgents = 50  # number of Pelicans (population members)
 Max_iterations = 1000  # maximum number of iterations
 
