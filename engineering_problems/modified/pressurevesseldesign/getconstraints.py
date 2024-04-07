@@ -13,8 +13,9 @@ def getconstraints(fnonlin,u):
        z += R * (getH(gx) ** 2)
        # same as f(x) = f(x) + R*(<g(x)>**2)
           # <g(x)> = 0, if g(x) <= 0
-   
+             
    return z
+
 
 def getH(g):
     return 0 if (g <= 0) else g
