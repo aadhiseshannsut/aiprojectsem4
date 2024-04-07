@@ -11,6 +11,8 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
     
     # Initialization
     X = np.zeros((SearchAgents, dimension))  # Initialize X as a matrix of zeros # Eq(2)
+
+    # Random position initializatoin
     for i in range(dimension):
         X[:, i] = lowerbound[i] + np.random.rand(SearchAgents) * ((upperbound[i] - lowerbound[i]))
     
@@ -28,7 +30,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             Xbest = X[location, :]  # Accessing row 'location' from matrix X
             fbest = best
             
-        # UPDAMax_iterationsE location of food
+        # UPDATE Max_iterations location of food
         k = np.random.permutation(SearchAgents)[0]
         X_FOOD = X[k, :]  # Update X_FOOD with the selected row from X
         F_FOOD = fit[k]   # Update F_FOOD with the fitness value corresponding to the selected row
@@ -47,7 +49,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             X_new = np.maximum(X_new, lowerbound)
             X_new = np.minimum(X_new, upperbound)                    
 
-            # Updating X_i using equation (5)
+            # Updating X_i using equation (5) # Check if the position is worse or better
             f_new = fitness(X_new)
             if f_new <= fit[i]:
                 X[i, :] = X_new
@@ -61,7 +63,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             X_new = np.maximum(X_new, lowerbound)
             X_new = np.minimum(X_new, upperbound)
             
-            # Updating X_i using equation (7)
+            # Updating X_i using equation (7) // updates if its better.
             f_new = fitness(X_new)
             if f_new <= fit[i]:
                 X[i,:] = X_new
