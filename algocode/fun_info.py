@@ -34,41 +34,41 @@ def fun_info(F):
     elif F == 'F11':
         return F11, -600, 600, 30
 
-    elif F == 'F12':
-        return F12, -50, 50, 30
+    # elif F == 'F12':
+    #     return F12, -50, 50, 30
 
-    elif F == 'F13':
-        return F13, -50, 50, 30
+    # elif F == 'F13':
+    #     return F13, -50, 50, 30
 
-    elif F == 'F14':
-        return F14, -65.53, 65.53, 2
+    # elif F == 'F14':
+    #     return F14, -65.53, 65.53, 2
 
-    elif F == 'F15':
-        return F15, -5, 5, 4
+    # elif F == 'F15':
+    #     return F15, -5, 5, 4
 
-    elif F == 'F16':
-        return F16, -5, 5, 2
+    # elif F == 'F16':
+    #     return F16, -5, 5, 2
 
-    elif F == 'F17':
-        return F17, [-5, 10], [0, 15], 2
+    # elif F == 'F17':
+    #     return F17, [-5, 10], [0, 15], 2
 
-    elif F == 'F18':
-        return F18, -5, 5, 2
+    # elif F == 'F18':
+    #     return F18, -5, 5, 2
 
-    elif F == 'F19':
-        return F19, 0, 1, 3
+    # elif F == 'F19':
+    #     return F19, 0, 1, 3
 
-    elif F == 'F20':
-        return F20, 0, 1, 6
+    # elif F == 'F20':
+    #     return F20, 0, 1, 6
 
-    elif F == 'F21':
-        return F21, 0, 10, 4
+    # elif F == 'F21':
+    #     return F21, 0, 10, 4
 
-    elif F == 'F22':
-        return F22, 0, 10, 4
+    # elif F == 'F22':
+    #     return F22, 0, 10, 4
 
-    elif F == 'F23':
-        return F23, 0, 10, 4
+    # elif F == 'F23':
+    #     return F23, 0, 10, 4
 
     else:
         raise ValueError("Unknown function: " + F)
