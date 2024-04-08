@@ -2,11 +2,11 @@ import POA
 import fun_info as f
 import writer as w
 
-ROWS = 50
+ROWS = 20
 # -------------------------------------------------------------------------------------------------------------------------------------------------
 Fun_names = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11']
 SearchAgents = 50  # number of Pelicans (population members)
-Max_iterations = 2000  # maximum number of iterations
+Max_iterations = 6000  # maximum number of iterations
 
 for Fun_name in Fun_names:
 	print(f"\n Function : {Fun_name}")
