@@ -17,12 +17,6 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
     for i in range(SearchAgents):
         L = X[i, :]
         fit[i] = fitness(fhandle, fnonlin, L)
-    
-    
-    fit = np.zeros(SearchAgents)  # Initialize fitness array # Eq(3)
-    for i in range(SearchAgents):
-        L = X[i, :]
-        fit[i] = fitness(fhandle, fnonlin, L)
             
     for t in range(1, Max_iterations+1):
                         

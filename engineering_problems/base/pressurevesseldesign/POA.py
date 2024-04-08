@@ -1,7 +1,5 @@
 import numpy as np
 
-fbest, Xbest, best_so_far, iterations, best_per_iteration = [], [], [], [], []
-
 def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness, fhandle, fnonlin):
     
     best_so_far = []  # Initialize list to store best fitness values over iterations
@@ -14,12 +12,6 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
     X = np.zeros((SearchAgents, dimension))  # Initialize X as a matrix of zeros # Eq(2)
     for i in range(dimension):
         X[:, i] = lowerbound[i] + np.random.rand(SearchAgents) * (upperbound[i] - lowerbound[i])  # Initial population # Eq(1)
-    
-    fit = np.zeros(SearchAgents)  # Initialize fitness array # Eq(3)
-    for i in range(SearchAgents):
-        L = X[i, :]
-        fit[i] = fitness(fhandle, fnonlin, L)
-    
     
     fit = np.zeros(SearchAgents)  # Initialize fitness array # Eq(3)
     for i in range(SearchAgents):
