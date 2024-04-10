@@ -16,6 +16,5 @@ def getconstraints(fnonlin,u):
              
    return z
 
-
 def getH(g):
-    return 0 if (g <= 0) else g
+    return max(0, g)

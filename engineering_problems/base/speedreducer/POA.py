@@ -44,7 +44,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
         
             # Ensure X_new is within the bounds
             X_new = np.maximum(X_new, lowerbound)
-            X_new = np.minimum(X_new, upperbound)                    
+            X_new = np.minimum(X_new, upperbound)
 
             # Updating X_i using equation (5)
             f_new = fitness(fhandle, fnonlin, X_new)
@@ -65,7 +65,7 @@ def POA(SearchAgents, Max_iterations, lowerbound, upperbound, dimension, fitness
             if f_new <= fit[i]:
                 X[i,:] = X_new
                 fit[i] = f_new
-                            
+                
         best_so_far.append(fbest)
         
     return fbest, Xbest, best_so_far
