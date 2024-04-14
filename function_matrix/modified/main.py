@@ -2,11 +2,11 @@ import POAM
 import fun_info as f
 import writer as w
 
-ROWS = 20
+ROWS = 50
 # -------------------------------------------------------------------------------------------------------------------------------------------------
-Fun_names = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11']
+Fun_names = [f"F{i}" for i in [7,10]]
 SearchAgents = 50  # number of Pelicans (population members)
-Max_iterations = 6000  # maximum number of iterations
+Max_iterations = 60000  # maximum number of iterations
 
 for Fun_name in Fun_names:
 	print(f"\n Function : {Fun_name}")
@@ -20,7 +20,13 @@ for Fun_name in Fun_names:
 		# Displaying results
 		print(f"{i}) Best score : {Best_score}")
 		
-		# save scores in a text file
-		w.add_score(Best_score, Fun_name)
-
+		# small optimization
+		if (Best_score > 0.0 and Fun_name != 'F5'):
+			break
+		elif (Best_score == 0.0):			
+			# save scores in a text file
+			w.add_score(Best_score, Fun_name)
+			break
+		else:
+			w.add_score(Best_score, Fun_name)
 # --------------------------------------------------------------------------------------------------------------------------------------------------

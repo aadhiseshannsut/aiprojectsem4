@@ -30,5 +30,5 @@ for i in range(1, ROWS+1):
 	plotter.plot_func(Max_iterations, POA_curve, 'Objective Space')
 	
 	# save scores in a text file
-	# writer.add_score(Best_pos, Best_score)
+	writer.add_score(Best_pos, Best_score)
 # --------------------------------------------------------------------------------------------------------------------------------------------------
